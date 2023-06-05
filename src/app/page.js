@@ -1,9 +1,14 @@
-import Navbar from "./components/Navbar/Navbar";
+"use client";
+import { ChakraProvider } from "@chakra-ui/react";
+
+import ProductContainer from "./components/ProductContainer/ProductContainer";
 
 export default function Home() {
   return (
-    <main>
-      <Navbar />
-    </main>
+    <ChakraProvider>
+      <main>
+        <ProductContainer />
+      </main>
+    </ChakraProvider>
   );
 }

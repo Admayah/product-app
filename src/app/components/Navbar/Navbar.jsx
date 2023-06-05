@@ -14,7 +14,7 @@ const Navbar = ({ handleSearchData, handleSearchText, cartItems, onOpen }) => {
       </h3>
       <div className="search__form">
         <div className="searchbar__container">
-          <i className="fa fa-search"></i>{" "}
+          <i className="fa fa-search" style={{ fontSize: "24px" }}></i>{" "}
           <input
             type="text"
             placeholder="Search for a product"
