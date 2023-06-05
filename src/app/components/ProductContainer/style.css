@@ -67,6 +67,7 @@ select {
   display: none;
 }
 .products__wrap{
+    padding: 50px;
     padding-top: 120px;
   }
 
