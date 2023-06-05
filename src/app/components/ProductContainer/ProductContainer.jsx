@@ -73,6 +73,7 @@ const ProductContainerr = () => {
         title: "product added to cart.",
         description: "New product succesfully added to cart.",
         status: "success",
+        position: "top-right",
         duration: 3000,
         isClosable: true,
       });

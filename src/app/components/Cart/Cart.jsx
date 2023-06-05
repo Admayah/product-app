@@ -151,7 +151,7 @@ const CartDrawer = ({ cartItems, isOpen, onClose, updateCartItems }) => {
                 fontSize="20px"
                 fontWeight="700"
               >
-                subtotal
+                total
               </Text>
               <Text as="p" fontSize="20px" fontWeight="700">
                 ${calculateTotalPrice(cartItems).toFixed(2)}
