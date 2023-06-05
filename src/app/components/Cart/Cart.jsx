@@ -93,11 +93,16 @@ const CartDrawer = ({ cartItems, isOpen, onClose, updateCartItems }) => {
               >
                 <Flex justifyContent="space-between" alignItems="center">
                   <HStack spacing="1.25rem">
-                    <Image src={item.image} w="6rem" objectFit="cover" alt={item.title}/>
+                    <Image
+                      src={item.image}
+                      w="6rem"
+                      objectFit="cover"
+                      alt={item.title}
+                    />
                     <Text w="150px">{item.title}</Text>
                   </HStack>
                   <Text as="span" fontSize="18" fontWeight="700">
-                    ${item.price * item.quantity}
+                    ${parseFloat((item.price * item.quantity).toFixed(2)).toLocaleString()}
                   </Text>
                 </Flex>
                 <Flex justifyContent="space-between" alignItems="center">
@@ -154,7 +159,7 @@ const CartDrawer = ({ cartItems, isOpen, onClose, updateCartItems }) => {
                 total
               </Text>
               <Text as="p" fontSize="20px" fontWeight="700">
-                ${calculateTotalPrice(cartItems).toFixed(2)}
+                ${parseFloat(calculateTotalPrice(cartItems).toFixed(2)).toLocaleString("en-US")}
               </Text>
             </Flex>
             <Button colorScheme="blue" h="3rem">
