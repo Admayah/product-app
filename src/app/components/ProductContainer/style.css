@@ -3,6 +3,12 @@
   min-height: 100vh;
   background-color: #f5f5f5;
 }
+.mobile__search-local{
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
 
 .icon{
   width: 100%;
@@ -21,7 +27,7 @@
   color: #000;
 }
 
-.search__form button {
+.mobile__search-local button {
   font-size: 0.875rem;
   line-height: 1rem;
   text-transform: uppercase;
