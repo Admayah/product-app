@@ -12,8 +12,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 
-
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, addToCart, isProductInCart }) => {
   return (
     <Card maxW="sm" pos="relative">
       <CardBody maxH="350px">
@@ -37,12 +36,13 @@ const ProductCard = ({ product }) => {
       <Divider />
       <CardFooter>
         <Button
-          variant="solid"
           w="100%"
-          bg="#3182CE"
-          color="#fff"
+          variant="solid"
+          colorScheme={isProductInCart ? "gray" : "blue"}
+          onClick={() => addToCart(product)}
+          cursor={isProductInCart ? "not-allowed" : "pointer"}
         >
-          Add To Cart
+          {isProductInCart ? "Already In Cart" : "Add To Cart"}
         </Button>
       </CardFooter>
     </Card>
