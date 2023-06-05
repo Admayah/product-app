@@ -123,17 +123,23 @@ const ProductContainerr = () => {
             <div className="mobile__search-local">
               <div className="icon">
                 <i className="fa fa-search" aria-hidden="true"></i>
-                <input type="text" placeholder="Search for a product" />
+                <input type="text" placeholder="Search for a product" 
+                onChange={handleSearch}
+                />
               </div>
 
-              <button type="button">search</button>
+              <button type="button" onClick={handleSearchProducts}>search</button>
             </div>
             <div className="sort-bar">
               <label htmlFor="sort-select">Sort By Price:</label>
-              <select id="sort-select">
+              <select
+                id="sort-select"
+                value={sortType}
+                onChange={(e) => setSortType(e.target.value)}
+              >
                 <option value="">None</option>
-                <option value="ascending">priceLowToHigh</option>
-                <option value="descending">priceHighToLow</option>
+                <option value="ascending">LOWEST to HIGHEST</option>
+                <option value="descending">HIGHEST to LOWEST</option>
               </select>
             </div>
             <div className="products__wrapper">
