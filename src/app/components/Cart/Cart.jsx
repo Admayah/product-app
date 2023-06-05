@@ -16,6 +16,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import EmptyCart from "../EmptyCart/EmptyCart";
 
 const CartDrawer = ({ cartItems, isOpen, onClose, updateCartItems }) => {
   const increaseQuantity = (itemId) => {
@@ -70,7 +71,17 @@ const CartDrawer = ({ cartItems, isOpen, onClose, updateCartItems }) => {
           color="#3182CE"
         >{`carts items`}</DrawerHeader>
         <DrawerBody overflowY="auto" maxH="calc(100vh - 120px)">
-          {cartItems.map((item, i) => (
+          {cartItems.length === 0 ? (
+            <Flex
+              alignItems="center"
+              justifyContent="center"
+              margin="auto 0"
+              h="100%"
+            >
+              <EmptyCart onClose={onClose} />
+            </Flex>
+          ) : (
+            cartItems.map((item, i) => (
               <Box
                 key={i}
                 display="flex"
@@ -121,7 +132,7 @@ const CartDrawer = ({ cartItems, isOpen, onClose, updateCartItems }) => {
                 </Flex>
               </Box>
             ))
-          }
+          )}
         </DrawerBody>
 
         <DrawerFooter

@@ -7,8 +7,8 @@ import Navbar from "../Navbar/Navbar";
 import ProductCard from "../ProductCard/ProductCard";
 import CartDrawer from "../Cart/Cart";
 
-
 import "./style.css";
+import ProductLoader from "../ProductLoader/ProductLoader";
 
 const ProductContainerr = () => {
   const toast = useToast();
@@ -18,7 +18,7 @@ const ProductContainerr = () => {
   const [cartItems, setCartItems] = useState([]);
   const [searchProducts, setSearchProducts] = useState("");
   const [sortType, setSortType] = useState("");
-  const[isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getProductData = async () => {
@@ -109,42 +109,46 @@ const ProductContainerr = () => {
         updateCartItems={updateCartItems}
       />
       <Navbar
-      cartItems={cartItems}
+        cartItems={cartItems}
         handleSearchText={handleSearch}
         handleSearchData={handleSearchProducts}
         onOpen={onOpen}
       />
-      <div className="products__container">
-        <div style={{ padding: "30px" }}>
-          <div className="mobile__search-local">
-            <div className="icon">
-              <i className="fa fa-search" aria-hidden="true"></i>
-              <input type="text" placeholder="Search for a product" />
-            </div>
+      {isLoading ? (
+        <ProductLoader />
+      ) : (
+        <div className="products__container">
+          <div style={{ padding: "30px" }}>
+            <div className="mobile__search-local">
+              <div className="icon">
+                <i className="fa fa-search" aria-hidden="true"></i>
+                <input type="text" placeholder="Search for a product" />
+              </div>
 
-            <button type="button">search</button>
-          </div>
-          <div className="sort-bar">
-            <label htmlFor="sort-select">Sort By Price:</label>
-            <select id="sort-select">
-              <option value="">None</option>
-              <option value="ascending">priceLowToHigh</option>
-              <option value="descending">priceHighToLow</option>
-            </select>
-          </div>
-          <div className="products__wrapper">
-            {products &&
-              products.map((product, i) => (
-                <ProductCard 
-                 key={i} 
-                 product={product}
-                addToCart={addToCart}
-                isProductInCart={isProductInCart(product)}
-                />
-              ))}
+              <button type="button">search</button>
+            </div>
+            <div className="sort-bar">
+              <label htmlFor="sort-select">Sort By Price:</label>
+              <select id="sort-select">
+                <option value="">None</option>
+                <option value="ascending">priceLowToHigh</option>
+                <option value="descending">priceHighToLow</option>
+              </select>
+            </div>
+            <div className="products__wrapper">
+              {products &&
+                products.map((product, i) => (
+                  <ProductCard
+                    key={i}
+                    product={product}
+                    addToCart={addToCart}
+                    isProductInCart={isProductInCart(product)}
+                  />
+                ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
