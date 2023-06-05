@@ -66,6 +66,9 @@ select {
 .mobile__search-local {
   display: none;
 }
+.products__wrap{
+    padding-top: 120px;
+  }
 
 @media (max-width: 768px) {
   .search__form {
@@ -84,5 +87,8 @@ select {
   }
   .products__wrapper {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+ .products__wrap{
+    padding: 50px;
   }
 }

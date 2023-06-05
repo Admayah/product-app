@@ -119,7 +119,7 @@ const ProductContainerr = () => {
         <ProductLoader />
       ) : (
         <div className="products__container">
-          <div style={{ padding: "30px" }}>
+          <div className="products__wrap">
             <div className="mobile__search-local">
               <div className="icon">
                 <i className="fa fa-search" aria-hidden="true"></i>
@@ -138,8 +138,8 @@ const ProductContainerr = () => {
                 onChange={(e) => setSortType(e.target.value)}
               >
                 <option value="">None</option>
-                <option value="ascending">LOWEST to HIGHEST</option>
-                <option value="descending">HIGHEST to LOWEST</option>
+                <option value="ascending">LOW to HIGH</option>
+                <option value="descending">HIGH to LOW</option>
               </select>
             </div>
             <div className="products__wrapper">
