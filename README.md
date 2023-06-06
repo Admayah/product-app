@@ -48,7 +48,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation
 
-1. Clone the repository: git clone https://github.com/your-username/product-app.git
+1. Clone the repository: git clone https://github.com/Admayah/product-app.git
 
 2. Navigate to the project directory: cd product-app
 
